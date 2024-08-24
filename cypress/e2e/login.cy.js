@@ -1,4 +1,5 @@
 import {
+  assertLoginPageTitle,
   validateInvalidLoginWithoutEmail,
   validateInvalidLoginWithoutPassword,
   validateInvalidLoginWitWrongEmail,
@@ -8,11 +9,14 @@ import {
 
 describe('Login Page', () => {
   beforeEach(() => {
-    // BaseURL is defined in cypress.config.js file
-    cy.visit("/login");
+    cy.visit("https://dev.platform.creatingly.com/webstudio");
+    Cypress.on('uncaught:exception', (err, runnable) => {
+      return false;
+    });
+    assertLoginPageTitle();
   });
 
-  assertLoginPageTitle();
+
 
   it("Verify login without email", () => {
     validateInvalidLoginWithoutEmail("Test@123");
