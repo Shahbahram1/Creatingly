@@ -9,6 +9,7 @@
   "author": "Shah Bahram",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^13.13.3"
+    "cypress": "^13.13.3",
+    "cypress-real-events": "^1.13.0"
   }
 }

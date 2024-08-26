@@ -6,7 +6,6 @@ import {
   validateInvalidLoginWitWrongPassword,
   validateValidCredentialsLogin
 } from "../support/PageObjects/loginPage";
-
 describe('Login Page', () => {
   beforeEach(() => {
     cy.visit("https://dev.platform.creatingly.com/webstudio");
@@ -15,7 +14,6 @@ describe('Login Page', () => {
     });
     assertLoginPageTitle();
   });
-
 
 
   it("Verify login without email", () => {

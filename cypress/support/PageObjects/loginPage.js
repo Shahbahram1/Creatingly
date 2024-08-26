@@ -1,7 +1,12 @@
-import { interceptResposeCodeWait } from "./commonFunctiona";
+import { interceptResposeCodeWait } from "./commonFunctions";
 
 export function assertLoginPageTitle() {
-  cy.title().should('eq', 'Login');
+  cy.get('div.welcome-msg.ng-tns-c177-0').contains('Welcome to Design Studio');
+}
+
+//Login Button
+export function clickLoginButton() {
+  cy.get('div[id="sys-profile"]').contains('Login').click();
 }
 
 // Valid Login
