@@ -28,21 +28,13 @@ export function clickGrid() {
     cy.get('li[id="grid-drawing-panel"]').should('be.visible').click();
 }
 
-export function performDrag() {
-    cy.get('#app-overlay.ontop')
-        .then(($element) => {
-            // Create a canvas inside the element
-            const canvas = document.createElement('canvas');
-            canvas.width = $element.width();
-            canvas.height = $element.height();
-            $element.append(canvas);
+export function performDrag(start, end) {
+    cy.get('div.overlay_grid_cell.ng-star-inserted').eq(start)  // Select the cell you want to drag
+        .trigger('mousedown', { which: 1 });  // Simulate the mouse down event
 
-            const context = canvas.getContext('2d');
-
-            // Set rectangle properties
-            // context.fillStyle = '#FF0000'; // Red color
-            context.fillRect(100, 200, 1200, 700); // Draw the rectangle
-        });
+    cy.get('div.overlay_grid_cell.ng-star-inserted').eq(end)  // Select the target cell or row where you want to drop
+        .trigger('mousemove')  // Simulate mouse move event to start dragging
+        .trigger('mouseup', { force: true });
 }
 
 

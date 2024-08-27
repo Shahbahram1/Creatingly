@@ -31,8 +31,17 @@ describe('Dashboard', () => {
         assertDevice();
         selectDimension();
         clickGrid();
+        // Waitng to visualize clearly
+        cy.wait(1000);
         //Perform Drag 
-        performDrag();
+        performDrag(0, 1);
+
+        //Perform Drag 
+        performDrag(0, 2);
+
+        //Perform Drag 
+        performDrag(1, 3);
+
 
     });
 
