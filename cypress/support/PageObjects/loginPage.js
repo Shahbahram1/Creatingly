@@ -4,9 +4,8 @@ export function assertLoginPageTitle() {
   cy.get('div.welcome-msg.ng-tns-c177-0').contains('Welcome to Design Studio');
 }
 
-//Login Button
-export function clickLoginButton() {
-  cy.get('div[id="sys-profile"]').contains('Login').click();
+export function loginButton() {
+  cy.get('div.sys-root-user').contains('Login').click();
 }
 
 // Valid Login

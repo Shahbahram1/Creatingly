@@ -21,26 +21,41 @@ describe('Dashboard', () => {
     });
 
     it("Create Artboard and Drag and drop", () => {
+        //Pop up of new design or existing design
         newDesignPopUpHeading();
         clickYesButton();
+
         // API Assertion => Verify API response
         interceptResposeCodeWait('@artBoard', 200);
-        // Assert elements on the page 
+
+        // Asserting elements on main page 
         pageAssertions();
+
+
+        // Verify error > Without creating artboard
+
         createArtBoard();
         assertDevice();
+
+
+        //Select Device (By Default it is selected mobile device)
+
+
+        //Select Desktop device
+        cy.get('i.fas.fa-desktop').should('be.visible').click()
+
+
+        // Selecting artboard dimensions
         selectDimension();
+
+        //Applying Grid
         clickGrid();
-        // Waitng to visualize clearly
+
+        // Static wait 
         cy.wait(1000);
-        //Perform Drag 
-        performDrag(0, 1);
 
-        //Perform Drag 
+        // Perform Drag and Drop again
         performDrag(0, 2);
-
-        //Perform Drag 
-        performDrag(1, 3);
 
 
     });

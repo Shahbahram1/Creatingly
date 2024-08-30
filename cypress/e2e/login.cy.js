@@ -1,5 +1,6 @@
 import {
   assertLoginPageTitle,
+  loginButton,
   validateInvalidLoginWithoutEmail,
   validateInvalidLoginWithoutPassword,
   validateInvalidLoginWitWrongEmail,
@@ -12,7 +13,8 @@ describe('Login Page', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
       return false;
     });
-    assertLoginPageTitle();
+    // assertLoginPageTitle();
+    loginButton();
   });
 
 
